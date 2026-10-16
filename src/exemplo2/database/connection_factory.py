@@ -20,7 +20,7 @@ class ConnectionFactory:
         self.database_path = (
             database_path
             if database_path is not None
-            else os.getenv("SQLITE_DB_PATH", "teste.db")
+            else os.getenv("SQLITE_DB_PATH", "./src/exemplo2/database/teste.db")
         )
 
     def create_connection(self) -> sqlite3.Connection:
