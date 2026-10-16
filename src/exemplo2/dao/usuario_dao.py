@@ -23,8 +23,8 @@ class UsuarioDAO:
                 nascimento TEXT
             )
         """
-        # closing fecha a conexão ao sair do bloco; with connection confirma
-        # a transação se não houver erro (ou faz rollback caso haja exceção).
+        # 1) 'closing' fecha a conexão ao sair do bloco; 
+        # 2) 'with connection' confirma a transação se não houver erro (ou faz rollback caso haja exceção).
         with closing(self.connection_factory.create_connection()) as connection:
             with connection:
                 connection.execute(create_table_sql)
