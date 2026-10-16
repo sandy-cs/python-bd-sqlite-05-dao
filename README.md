@@ -1,5 +1,11 @@
 # python-bd-sqlite-05-dao
 
+### SQLite Viewer
+
+No Codespace, instalar a extensão (plugin) VS Code `SQLite Viewer`: 
+
+![Alt: extensão (plugin) SQLite Viewer.](SQLiteViewerForVSCode.png)
+
 # Python + SQLite: exemplo de Data Access Object (DAO)
 
 Este projeto demonstra o padrão Data Access Object (DAO) em Python com SQLite. 
