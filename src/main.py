@@ -65,7 +65,7 @@ def main() -> None:
     usuario_dao.read(usuario.id)
 
 
-# Executa o exemplo apenas quando este módulo é iniciado diretamente.
+# Executa o exemplo apenas quando este módulo é iniciado diretamente (não for importado em outro arquivo).
 if __name__ == "__main__":
     main()
 
@@ -103,8 +103,14 @@ condicional não chamará 'main()' durante a importação.
 
 7) O valor de '__name__' costuma ser o nome do módulo usado para 
 importá-lo, incluindo o pacote quando houver: por exemplo, "src.main" 
-ou "src.dao.usuario_dao". Entretanto, ao executar com 'python -m src.main, main.py' 
-é tratado como o programa principal e '__name__' será "__main__".
+ou "src.dao.usuario_dao". Entretanto, ao executar com 'python -m src.main', 
+'main.py' é tratado como o programa principal e '__name__' será "__main__".
 
-
+8) 'python -m src.main' é o comando para executar o módulo 'src.main' como 
+programa, a partir da pasta raiz do projeto. 
+  - A opção '-m' pede ao Python para localizar o módulo pelo nome do pacote.
+  - Isso também permite que os 'imports' relativos, como 
+    'from .model.usuario import Usuario', funcionem.
+  - 'main.py' é o arquivo correspondente ao módulo src.main; não precisa ser 
+    acrescentado ao comando.
 '''
