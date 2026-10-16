@@ -1,6 +1,16 @@
 from .model.usuario import Usuario
 from .dao.usuario_dao import UsuarioDAO
 
+"""
+1) O "-> None" indica que "main()" não retorna um valor útil. 
+Em Python, se a função termina sem um return explícito, ela 
+retorna "None" automaticamente.
+
+2) A anotação é apenas informativa para ferramentas e leitores; 
+não força esse comportamento em tempo de execução. 
+
+3) Em Python, o valor equivalente a "nulo" é "None", não "NULL".
+"""
 
 def main() -> None:
     # O DAO concentra o acesso ao banco. O programa usa o métodos sem
