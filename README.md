@@ -2,7 +2,7 @@
 
 # Python + SQLite: exemplo de Data Access Object (DAO)
 
-Este projeto demonstra o padrão DAO em Python com SQLite. 
+Este projeto demonstra o padrão Data Access Object (DAO) em Python com SQLite. 
 
 O exemplo apresenta as operações CREATE, READ, UPDATE, DELETE (CRUD): criar a tabela, cadastrar, consultar, atualizar e remover um usuário.
 
