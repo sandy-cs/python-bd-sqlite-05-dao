@@ -77,15 +77,15 @@ class UsuarioDAO:
             row = connection.execute(select_sql, (usuario_id,)).fetchone()
 
         if row is None:
-            # Optional[Usuario]: retorna None quando não há correspondência.
+            # Optional[Usuario]: retorna 'None' quando não há correspondência.
             print("Usuário não encontrado!")
             return None
 
         # Converte a linha retornada pelo banco em um objeto do domínio.
         usuario = Usuario(
-            id=row["id"],
-            nome=row["nome"],
-            nascimento=row["nascimento"],
+            id = row["id"],
+            nome = row["nome"],
+            nascimento = row["nascimento"],
         )
         print(
             "USUÁRIO LIDO DO BANCO DE DADOS:"
@@ -97,15 +97,11 @@ class UsuarioDAO:
 
     def update(self, usuario: Usuario) -> None:
         # Atualiza os dados cujo ID coincide com o do objeto recebido.
-        update_sql = (
-            "UPDATE usuario SET nome = ?, nascimento = ? WHERE id = ?"
-        )
+        update_sql = "UPDATE usuario SET nome = ?, nascimento = ? WHERE id = ?"
+        
         with closing(self.connection_factory.create_connection()) as connection:
             with connection:
-                connection.execute(
-                    update_sql,
-                    (usuario.nome, usuario.nascimento, usuario.id),
-                )
+                connection.execute(update_sql, (usuario.nome, usuario.nascimento, usuario.id))
         print(f"O usuário {usuario.nome} foi atualizado no banco de dados!")
 
     def delete(self, usuario: Usuario) -> None:
@@ -114,4 +110,4 @@ class UsuarioDAO:
         with closing(self.connection_factory.create_connection()) as connection:
             with connection:
                 connection.execute(delete_sql, (usuario.id,))
-        print(f"O usuario {usuario.nome} foi removido do BD.")
+        print(f"O usuário {usuario.nome} foi removido do banco de dados.")
