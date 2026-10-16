@@ -40,7 +40,7 @@ O acesso ao SQLite usa a biblioteca padrão do Python (`sqlite3`).
 Na raiz do repositório, rode:
 
 ```bash
-python -m src.main
+python -m src.exemplo2.main
 ```
 
 O programa cria o arquivo de banco indicado por `SQLITE_DB_PATH` (ou `teste.db`
