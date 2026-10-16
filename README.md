@@ -51,6 +51,8 @@ Na raiz do repositório, rode:
 python -m src.exemplo2.main
 ```
 
+**OBS**: a opção `-m` faz o `Python` executar um módulo pelo nome, usando o sistema de importação, em vez de executar um arquivo indicado por caminho. Em `python -m src.exemplo2.main`, o `Python` procura o módulo `src.exemplo2.main` e o executa como programa. Os pontos representam a hierarquia de pacotes e módulos. Normalmente, o comando é executado a partir da pasta que contém `src`. Isso difere de `python src/exemplo2/main.py`, que executa o arquivo diretamente. Usar `-m` ajuda o `Python` a reconhecer o contexto dos pacotes e pode ser importante para que `imports` relativos funcionem corretamente.
+
 O programa cria o arquivo de banco indicado por `SQLITE_DB_PATH` (ou `teste.db`
 quando a variável não estiver definida), cria a tabela `usuario` e executa o fluxo
 de cadastro, consulta, atualização e remoção de usuários.
