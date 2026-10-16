@@ -3,11 +3,13 @@ from .dao.usuario_dao import UsuarioDAO
 
 
 def main() -> None:
-    # O DAO concentra o acesso ao banco; o programa usa seus métodos sem
+    # O DAO concentra o acesso ao banco. O programa usa o métodos sem
     # precisar conhecer os comandos SQL executados internamente.
     usuario_dao = UsuarioDAO()
     usuario_dao.create_table()
-
+    
+    ## CRUD (CREATE, READ, UPDATE, DELETE) ##
+    
     # CREATE: cadastra o usuário e guarda no objeto o ID gerado pelo SQLite.
     usuario = Usuario(nome = "Ana", nascimento = "2000-06-07")
     usuario = usuario_dao.create(usuario)
