@@ -9,9 +9,8 @@ from ..model.usuario import Usuario
 class UsuarioDAO:
     """Implementa as operações de persistência para a entidade Usuario."""
 
-    def __init__(
-        self, connection_factory: Optional[ConnectionFactory] = None
-    ) -> None:
+    # O método construtor aceita uma fábrica de conexões opcional, permitindo injeção de dependência para testes.
+    def __init__(self, connection_factory: Optional[ConnectionFactory] = None) -> None:
         # Permite injetar outra fábrica (útil em testes); se omitida, usa a padrão.
         self.connection_factory = connection_factory or ConnectionFactory()
 
