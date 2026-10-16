@@ -64,6 +64,8 @@ class UsuarioDAO:
       - O primeiro valor dessa linha é a coluna apelidada de 'max_id'.
       - Com MAX(), a consulta retorna uma linha mesmo quando a tabela estiver vazia.
         - Nesse caso, o valor será 'None' ('SQL NULL').
+      - Como a coluna foi apelidada de 'max_id', também é possível acessá-la por esse 
+        nome se a conexão for configurada com 'sqlite3.Row': 'max_id = row["max_id"]'.
     '''
 
     def read(self, usuario_id: int) -> Optional[Usuario]:
