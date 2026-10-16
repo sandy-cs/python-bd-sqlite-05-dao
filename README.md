@@ -14,7 +14,7 @@ O projeto lê o caminho do banco pela variável `SQLITE_DB_PATH`, definida no ar
 Por exemplo:
 
 ```env
-SQLITE_DB_PATH=./banco_de_dados.db
+SQLITE_DB_PATH=./src/exemplo2/database/banco_de_dados.db
 ```
 
 Caminhos relativos são interpretados a partir do diretório em que o programa é
