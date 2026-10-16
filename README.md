@@ -9,8 +9,7 @@ O exemplo apresenta as operações CREATE, READ, UPDATE, DELETE (CRUD): criar a 
 ## Configurar o banco de dados
 
 O projeto lê o caminho do banco pela variável `SQLITE_DB_PATH`, definida no arquivo
-`.env`. O arquivo `.env.example` serve como modelo; copie-o para `.env` e ajuste o
-caminho se desejar. O arquivo `.env` é ignorado pelo Git.
+`.env`. 
 
 Por exemplo:
 
