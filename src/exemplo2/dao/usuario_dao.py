@@ -36,29 +36,35 @@ class UsuarioDAO:
         insert_sql = "INSERT INTO usuario (nome, nascimento) VALUES (?, ?)"
         with closing(self.connection_factory.create_connection()) as connection:
             with connection:
-                cursor = connection.execute(
-                    insert_sql, (usuario.nome, usuario.nascimento)
-                )
+                cursor = connection.execute(insert_sql, (usuario.nome, usuario.nascimento))
                 # lastrowid contém a chave primária atribuída pelo SQLite.
                 usuario.id = cursor.lastrowid
 
+        # O 'f' indica uma f-string (formatted string literal), que permite inserir valores de variáveis ou expressões entre chaves {}.
         print(
             "USUÁRIO GRAVADO NO BANCO DE DADOS:"
-            f"\nID: {usuario.id}"
+            f"\nID: {usuario.id}" 
             f"\nNOME: {usuario.nome}"
             f"\nDATA DE NASCIMENTO: {usuario.nascimento}"
         )
         return usuario
 
     def read_last_inserted_id(self, connection: sqlite3.Connection) -> int:
-        # MAX(id) obtém o maior identificador; uma tabela vazia não tem máximo.
-        row = connection.execute(
-            "SELECT MAX(id) AS max_id FROM usuario"
-        ).fetchone()
+        # MAX(id) obtém o maior identificador. Uma tabela vazia não tem máximo.
+        row = connection.execute("SELECT MAX(id) AS max_id FROM usuario").fetchone()
         if row is None or row[0] is None:
             # -1 sinaliza que ainda não há registros.
             return -1
         return int(row[0])
+    '''
+    '.fetchone()':
+    1) Busca uma linha do resultado da consulta e a retorna. 
+    2) Não retorna apenas o valor da coluna: nesse caso, 'row' é uma linha com uma coluna.
+    3) 'row[0]' acessa o primeiro valor dessa linha: o resultado de MAX(id).
+      - O primeiro valor dessa linha é a coluna apelidada de 'max_id'.
+      - Com MAX(), a consulta retorna uma linha mesmo quando a tabela estiver vazia.
+        - Nesse caso, o valor será 'None' ('SQL NULL').
+    '''
 
     def read(self, usuario_id: int) -> Optional[Usuario]:
         # Busca somente o registro com o ID informado.
