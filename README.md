@@ -39,6 +39,8 @@ executado. Se a variável não estiver definida, o programa usa:
 pip install -r requirements.txt
 ```
 
+**OBS**: a __flag__ `-r` é a opção de `requirements file`: diz ao `pip` para ler de um arquivo a lista de pacotes que deve instalar. Assim, `pip install -r requirements.txt` instala as dependências listadas em `requirements.txt`. Sem `-r`, o `pip` interpretaria `requirements.txt` como se fosse o nome de um pacote a ser instalado.
+
 O acesso ao SQLite usa a biblioteca padrão do Python (`sqlite3`).
 
 ## Executar
