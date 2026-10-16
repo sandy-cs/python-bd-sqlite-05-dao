@@ -18,7 +18,10 @@ def main() -> None:
     usuario_dao = UsuarioDAO()
     usuario_dao.create_table()
     
-    ## CRUD (CREATE, READ, UPDATE, DELETE) ##
+    '''
+    FLUXO 1: 
+      CRUD (CREATE, READ, UPDATE, DELETE)
+    '''
     
     # CREATE: cadastra o usuário e guarda no objeto o ID gerado pelo SQLite.
     usuario = Usuario(nome = "Ana", nascimento = "2000-06-07")
@@ -36,7 +39,10 @@ def main() -> None:
     usuario_dao.delete(usuario)
     usuario_dao.read(usuario.id)
 
-    # Repete o fluxo de cadastro e atualização com outros usuários.
+    '''
+    FLUXO 2: 
+      Cadastro e atualização de outros usuários.
+    '''
     usuario = Usuario(nome = "Bruna", nascimento = "2006-08-07")
     usuario = usuario_dao.create(usuario)
     usuario_dao.read(usuario.id)
