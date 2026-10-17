@@ -15,10 +15,9 @@ class VeiculoDAO:
     def create_table(self):
         create_table_sql = """
             CREATE TABLE IF NOT EXISTS veiculo (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
                 marca VARCHAR(100) NOT NULL,
                 modelo VARCHAR(100) NOT NULL,
-                chassi VARCHAR(100) NOT NULL,
+                chassi VARCHAR(17) PRIMARY KEY,
                 placa VARCHAR(20) NOT NULL,
                 cor VARCHAR(50) NOT NULL
             )
